@@ -3,186 +3,179 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wave OTT - Watch Exclusive Shows & Web Series</title>
+  <title>Wave OTT Premium - Uncut Web Series</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- FontAwesome Icons CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    @keyframes pulse-ring {
-      0% { transform: scale(0.95); opacity: 0.8; }
-      50% { transform: scale(1.1); opacity: 0.4; }
-      100% { transform: scale(0.95); opacity: 0.8; }
+    @keyframes pulse-glow {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(220, 38, 38, 0.7); }
+      50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(220, 38, 38, 1); }
     }
-    .pulse-effect {
-      animation: pulse-ring 2s infinite ease-in-out;
+    .btn-glow {
+      animation: pulse-glow 1.8s infinite ease-in-out;
     }
   </style>
 </head>
-<body class="bg-gray-950 text-white font-sans antialiased min-h-screen flex flex-col justify-between select-none">
+<body class="bg-black text-white font-sans antialiased min-h-screen flex flex-col justify-between select-none">
 
   <!-- Header Section -->
-  <header class="w-full bg-gray-900/80 backdrop-blur-md border-b border-gray-800 sticky top-0 z-40 px-4 py-3 flex items-center justify-between">
+  <header class="w-full bg-neutral-900/90 border-b border-red-900/40 sticky top-0 z-40 px-4 py-2.5 flex items-center justify-between backdrop-blur-md">
     <div class="flex items-center space-x-2">
-      <div class="bg-red-600 text-white font-black text-xl px-2.5 py-1 rounded tracking-wider shadow-lg">
+      <div class="bg-gradient-to-r from-red-600 to-rose-700 text-white font-black text-xl px-2.5 py-0.5 rounded shadow-lg tracking-widest">
         WAVE
       </div>
-      <span class="text-xs font-bold text-red-500 uppercase tracking-widest hidden sm:inline">OTT PREMIUM</span>
-    </div>
-    <div class="flex items-center space-x-3 text-xs">
-      <span class="flex items-center gap-1 text-green-400 font-semibold bg-green-950/60 border border-green-800 px-2 py-1 rounded-full">
-        <i class="fa-solid fa-[#10B981] fa-circle text-[8px] animate-pulse"></i> 10M+ Downloads
+      <span class="text-[10px] font-extrabold text-red-500 uppercase tracking-widest border border-red-500/30 px-1.5 py-0.5 rounded">
+        18+ UNCUT
       </span>
-      <span class="bg-yellow-500/20 text-yellow-400 border border-yellow-500/40 px-2 py-1 rounded font-bold">
-        ★ 4.8 / 5
+    </div>
+    <div class="flex items-center space-x-2 text-xs">
+      <span class="flex items-center gap-1 text-xs font-bold text-red-400 bg-red-950/80 border border-red-800/60 px-2.5 py-1 rounded-full">
+        <i class="fa-solid fa-[#10B981] fa-circle text-[8px] animate-pulse text-green-400"></i> Live 4K Stream
       </span>
     </div>
   </header>
 
-  <!-- Main Hero Section -->
-  <main class="max-w-md mx-auto w-full px-4 py-4 flex-grow flex flex-col justify-center">
+  <!-- Main Content -->
+  <main class="max-w-md mx-auto w-full px-3 py-3 flex-grow flex flex-col">
 
-    <!-- Top Headline Banner -->
-    <div class="text-center mb-3">
-      <span class="inline-block bg-red-600/20 text-red-400 border border-red-500/30 text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-2">
-        🔥 EXCLUSIVE UNCUT RELEASE
+    <!-- Spicy Attention Banner -->
+    <div class="text-center mb-2">
+      <span class="inline-block bg-gradient-to-r from-amber-500 to-red-600 text-black font-black text-[11px] px-3 py-0.5 rounded-full uppercase tracking-wider mb-1 shadow-md">
+        🔥 MOST SEARCHED DESI SHOWS
       </span>
-      <h1 class="text-xl sm:text-2xl font-black leading-tight text-white">
-        Dekhiye Latest Binge-Worthy Web Series Free Me!
+      <h1 class="text-lg sm:text-xl font-black leading-tight text-red-500 uppercase tracking-wide">
+        Sabse Hot & Uncut Episodes Direct Stream Karein!
       </h1>
-      <p class="text-xs text-gray-400 mt-1">HD Quality • No Ads • Daily New Episodes</p>
+      <p class="text-[11px] text-gray-300 font-semibold mt-0.5">
+        No Registration • Full HD 1080p • Fast Download
+      </p>
     </div>
 
-    <!-- Simulated Video Player Card -->
-    <div onclick="openModal()" class="relative w-full aspect-video bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 shadow-2xl cursor-pointer group my-2">
-      <!-- Player Background Image / Poster -->
-      <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?q=80&w=800&auto=format&fit=crop" 
-           alt="Show Thumbnail" 
-           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-70">
+    <!-- Main Simulated Player (High-CTR Hook) -->
+    <div onclick="openModal()" class="relative w-full aspect-video bg-neutral-900 rounded-xl overflow-hidden border-2 border-red-600/80 shadow-2xl cursor-pointer group my-2">
+      <!-- Hot Teaser Thumbnail -->
+      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop" 
+           alt="Uncut Stream Preview" 
+           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 filter brightness-90">
       
-      <!-- Overlay Gradient -->
-      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/40"></div>
+      <!-- Dark Gradient Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/50"></div>
 
-      <!-- Live Stream Badge -->
-      <div class="absolute top-3 left-3 flex items-center gap-1.5 bg-red-600/90 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">
-        <span class="w-2 h-2 rounded-full bg-white animate-ping"></span> UNCUT HD
+      <!-- Top Tags -->
+      <div class="absolute top-2 left-2 right-2 flex justify-between items-center text-[10px]">
+        <span class="bg-red-600 text-white font-black px-2 py-0.5 rounded shadow tracking-wider flex items-center gap-1">
+          <i class="fa-solid fa-[#10B981] fa-circle text-[6px] animate-ping"></i> UNCUT 18+
+        </span>
+        <span class="bg-black/80 backdrop-blur-sm text-yellow-400 border border-yellow-500/40 font-bold px-2 py-0.5 rounded">
+          <i class="fa-solid fa-eye text-red-500"></i> 48.2k Watching
+        </span>
       </div>
 
-      <!-- Play Button Center -->
+      <!-- Big Glowing Play Button -->
       <div class="absolute inset-0 flex items-center justify-center">
-        <div class="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center shadow-2xl pulse-effect group-hover:bg-red-500 transition-all">
-          <i class="fa-solid fa-play text-2xl ml-1"></i>
+        <div class="w-16 h-16 bg-gradient-to-tr from-red-700 via-red-600 to-rose-500 text-white rounded-full flex items-center justify-center shadow-2xl btn-glow">
+          <i class="fa-solid fa-play text-2xl ml-1 text-white"></i>
         </div>
       </div>
 
-      <!-- Fake Progress Bar Bottom -->
-      <div class="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-t from-black to-transparent">
-        <div class="flex justify-between text-[10px] text-gray-300 mb-1 font-mono">
-          <span>00:15 / 45:00</span>
-          <span class="text-red-400 font-bold">TAP TO WATCH FULL</span>
+      <!-- Fake Progress & Duration Bar -->
+      <div class="absolute bottom-0 inset-x-0 p-2.5 bg-gradient-to-t from-black via-black/80 to-transparent">
+        <div class="flex justify-between text-[10px] text-gray-200 mb-1 font-mono font-bold">
+          <span class="text-red-400">02:14 / 38:45</span>
+          <span class="bg-red-600/90 text-white px-1.5 py-0.5 rounded animate-pulse">TAP TO PLAY FULL EPISODE</span>
         </div>
-        <div class="w-full bg-gray-700/80 rounded-full h-1.5 overflow-hidden">
-          <div class="bg-red-600 h-full w-[15%]"></div>
+        <div class="w-full bg-neutral-800 rounded-full h-1.5 overflow-hidden border border-neutral-700">
+          <div class="bg-gradient-to-r from-red-600 to-rose-500 h-full w-[28%]"></div>
         </div>
       </div>
     </div>
 
-    <!-- Main Call To Action Button -->
-    <button onclick="openModal()" class="w-full mt-3 bg-gradient-to-r from-red-600 via-red-500 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-extrabold text-base py-3.5 px-4 rounded-xl shadow-lg shadow-red-600/30 flex items-center justify-center gap-2 transform active:scale-95 transition-all">
-      <i class="fa-solid fa-download text-lg animate-bounce"></i>
-      <span>DOWNLOAD APP TO WATCH FULL SHOW</span>
+    <!-- Main High-Conversion CTA Button -->
+    <button onclick="openModal()" class="w-full my-2 bg-gradient-to-r from-red-600 via-rose-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-black text-base py-3 px-4 rounded-xl shadow-xl border border-red-400/40 flex items-center justify-center gap-2 transform active:scale-95 transition-all">
+      <i class="fa-solid fa-play-circle text-xl animate-bounce"></i>
+      <span class="uppercase tracking-wide">CONTINUE WATCHING IN HD APP</span>
     </button>
 
-    <!-- Trust Badges -->
-    <div class="grid grid-cols-3 gap-2 mt-4 text-center">
-      <div class="bg-gray-900/60 border border-gray-800 p-2 rounded-lg">
-        <i class="fa-solid fa-shield-halved text-green-400 text-sm mb-1"></i>
-        <p class="text-[10px] text-gray-400 font-medium">100% Virus Free</p>
-      </div>
-      <div class="bg-gray-900/60 border border-gray-800 p-2 rounded-lg">
-        <i class="fa-solid fa-bolt text-yellow-400 text-sm mb-1"></i>
-        <p class="text-[10px] text-gray-400 font-medium">Fast Streaming</p>
-      </div>
-      <div class="bg-gray-900/60 border border-gray-800 p-2 rounded-lg">
-        <i class="fa-solid fa-mobile-screen text-blue-400 text-sm mb-1"></i>
-        <p class="text-[10px] text-gray-400 font-medium">Android / iOS</p>
-      </div>
+    <!-- Hot Trending Grid -->
+    <div class="mt-4 mb-2 flex justify-between items-center border-b border-neutral-800 pb-1">
+      <h2 class="text-xs font-black text-red-500 tracking-wider uppercase flex items-center gap-1">
+        <i class="fa-solid fa-fire text-amber-500"></i> Exclusive Hot Releases
+      </h2>
+      <span class="text-[10px] text-gray-400 font-bold">Updated Just Now</span>
     </div>
 
-    <!-- Trending Movies Grid Header -->
-    <div class="mt-6 mb-2 flex justify-between items-center">
-      <h2 class="text-sm font-extrabold text-gray-200 tracking-wide uppercase">🔥 Popular Right Now</h2>
-      <span class="text-[11px] text-red-400 font-semibold">Updated Today</span>
-    </div>
-
-    <!-- Trending Show Grid -->
-    <div class="grid grid-cols-2 gap-3">
-      <!-- Show Card 1 -->
-      <div onclick="openModal()" class="relative bg-gray-900 rounded-lg overflow-hidden border border-gray-800 cursor-pointer group">
-        <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=400&auto=format&fit=crop" alt="Show 1" class="w-full h-36 object-cover group-hover:scale-105 transition-transform">
-        <div class="absolute top-1.5 left-1.5 bg-red-600 text-[9px] font-black px-1.5 py-0.5 rounded">EXCLUSIVE</div>
-        <div class="p-2 bg-gray-900">
-          <p class="text-xs font-bold truncate text-white">Desi Secrets S01</p>
-          <p class="text-[10px] text-gray-400">Drama • Uncut</p>
+    <!-- Grid Items -->
+    <div class="grid grid-cols-2 gap-2.5">
+      <!-- Item 1 -->
+      <div onclick="openModal()" class="relative bg-neutral-900 rounded-lg overflow-hidden border border-neutral-800 cursor-pointer group">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop" alt="Show 1" class="w-full h-36 object-cover group-hover:scale-105 transition-transform opacity-85">
+        <div class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[9px] font-black px-1.5 py-0.5 rounded shadow">DESI UNCUT</div>
+        <div class="p-2 bg-neutral-950">
+          <p class="text-xs font-bold truncate text-white">Night Special S02</p>
+          <p class="text-[10px] text-gray-400">Full Uncut Episode</p>
         </div>
       </div>
-      <!-- Show Card 2 -->
-      <div onclick="openModal()" class="relative bg-gray-900 rounded-lg overflow-hidden border border-gray-800 cursor-pointer group">
-        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=400&auto=format&fit=crop" alt="Show 2" class="w-full h-36 object-cover group-hover:scale-105 transition-transform">
-        <div class="absolute top-1.5 left-1.5 bg-yellow-500 text-black text-[9px] font-black px-1.5 py-0.5 rounded">TRENDING</div>
-        <div class="p-2 bg-gray-900">
-          <p class="text-xs font-bold truncate text-white">Night Stories HD</p>
-          <p class="text-[10px] text-gray-400">Romance • Full HD</p>
+
+      <!-- Item 2 -->
+      <div onclick="openModal()" class="relative bg-neutral-900 rounded-lg overflow-hidden border border-neutral-800 cursor-pointer group">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400&auto=format&fit=crop" alt="Show 2" class="w-full h-36 object-cover group-hover:scale-105 transition-transform opacity-85">
+        <div class="absolute top-1.5 left-1.5 bg-amber-500 text-black text-[9px] font-black px-1.5 py-0.5 rounded shadow">TRENDING 18+</div>
+        <div class="p-2 bg-neutral-950">
+          <p class="text-xs font-bold truncate text-white">PG House Tales</p>
+          <p class="text-[10px] text-gray-400">HD Streaming Available</p>
         </div>
       </div>
     </div>
 
   </main>
 
-  <!-- Download Action Modal / Popup -->
-  <div id="downloadModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
-    <div class="bg-gray-900 border border-gray-800 rounded-2xl p-5 max-w-xs w-full text-center relative shadow-2xl">
+  <!-- Download Modal Triggered On Any Click -->
+  <div id="downloadModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+    <div class="bg-neutral-900 border-2 border-red-600/80 rounded-2xl p-5 max-w-xs w-full text-center relative shadow-2xl">
+      
       <!-- Close Button -->
-      <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-400 hover:text-white text-lg">
+      <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-400 hover:text-white text-base">
         <i class="fa-solid fa-xmark"></i>
       </button>
 
-      <!-- App Icon -->
-      <div class="w-16 h-16 bg-gradient-to-tr from-red-600 to-red-400 rounded-2xl mx-auto flex items-center justify-center shadow-lg shadow-red-600/40 mb-3 border border-red-400/30">
-        <span class="text-white font-black text-2xl">W</span>
+      <!-- App Logo -->
+      <div class="w-16 h-16 bg-gradient-to-tr from-red-700 via-red-600 to-rose-500 rounded-2xl mx-auto flex items-center justify-center shadow-lg shadow-red-600/50 mb-3 border border-red-400">
+        <span class="text-white font-black text-2xl tracking-widest">W</span>
       </div>
 
-      <h3 class="text-lg font-black text-white">Wave OTT App</h3>
-      <p class="text-xs text-gray-400 mt-1">Download official app to watch all uncut episodes without ads.</p>
+      <h3 class="text-lg font-black text-white uppercase tracking-wide">Wave OTT Premium</h3>
+      <p class="text-xs text-red-400 font-bold mt-0.5">Watch Full Uncut Video Without Ads</p>
 
-      <div class="my-4 bg-gray-950 p-3 rounded-xl border border-gray-800 text-left space-y-2">
-        <div class="flex items-center text-xs text-gray-300 gap-2">
-          <i class="fa-solid fa-circle-check text-green-400"></i> Free Unlimited Access
+      <div class="my-4 bg-black/80 p-3 rounded-xl border border-neutral-800 text-left space-y-2">
+        <div class="flex items-center text-xs text-gray-200 gap-2 font-medium">
+          <i class="fa-solid fa-circle-check text-green-400"></i> Direct HD Fast Player
         </div>
-        <div class="flex items-center text-xs text-gray-300 gap-2">
-          <i class="fa-solid fa-circle-check text-green-400"></i> High Speed Stream (No Lag)
+        <div class="flex items-center text-xs text-gray-200 gap-2 font-medium">
+          <i class="fa-solid fa-circle-check text-green-400"></i> 100% Free Access Enabled
         </div>
-        <div class="flex items-center text-xs text-gray-300 gap-2">
-          <i class="fa-solid fa-circle-check text-green-400"></i> Daily New Updates
+        <div class="flex items-center text-xs text-gray-200 gap-2 font-medium">
+          <i class="fa-solid fa-circle-check text-green-400"></i> Anti-Lags & No Buffer
         </div>
       </div>
 
-      <!-- Direct APK / Offer Redirect URL -->
+      <!-- MAIN ACTION TARGET LINK -->
       <a href="YOUR_OFFER_OR_APK_LINK_HERE" 
-         class="w-full block bg-green-500 hover:bg-green-600 text-gray-950 font-black text-base py-3 px-4 rounded-xl shadow-lg shadow-green-500/20 transition-all uppercase tracking-wide">
-        📥 INSTALL APP NOW
+         class="w-full block bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-black font-black text-base py-3.5 px-4 rounded-xl shadow-lg shadow-green-500/30 transition-all uppercase tracking-wider">
+        📥 DOWNLOAD & WATCH NOW
       </a>
       
-      <p class="text-[10px] text-gray-500 mt-2">File Size: 12.4 MB • Version: 4.2.1</p>
+      <p class="text-[10px] text-gray-400 mt-2 font-bold">Size: 11.8 MB • Android & iOS Support</p>
     </div>
   </div>
 
   <!-- Footer -->
-  <footer class="w-full bg-gray-950 border-t border-gray-900 py-3 text-center text-[10px] text-gray-600">
-    <p>© 2026 Wave OTT Network. All Rights Reserved.</p>
+  <footer class="w-full bg-neutral-950 border-t border-neutral-900 py-3 text-center text-[10px] text-gray-500">
+    <p>© 2026 Wave OTT Network. 18+ Content Only.</p>
   </footer>
 
-  <!-- Simple JavaScript Logic -->
+  <!-- Script Logic -->
   <script>
     function openModal() {
       document.getElementById('downloadModal').classList.remove('hidden');
