@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="hi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Wave OTT - Watch Exclusive & Uncut Shows</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome icons for UI components -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        wave: {
+                            red: '#e50914',
+                            crimson: '#ff1e27',
+                            dark: '#0a0a0c',
+                            card: '#141419',
+                            surface: '#1d1d26',
+                            gold: '#ffb703'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 1.8s infinite ease-in-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'ripple': 'ripple 1.5s infinite'
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 15px rgba(229, 9, 20, 0.6)' },
+                            '50%': { boxShadow: '0 0 30px rgba(255, 30, 39, 0.9)' }
+                        },
+                        ripple: {
+                            '0%': { transform: 'scale(1)', opacity: '0.8' },
+                            '100%': { transform: 'scale(1.5)', opacity: '0' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0a0a0c;
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .glass-panel {
+            background: rgba(20, 20, 25, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #e50914 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .shimmer-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        .shimmer-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                60deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.25) 50%,
+                transparent 70%
+            );
+            transform: rotate(30deg);
+            animation: shimmerEffect 2.5s infinite;
+        }
+
+        @keyframes shimmerEffect {
+            0% { transform: translateX(-100%) rotate(30deg); }
+            100% { transform: translateX(100%) rotate(30deg); }
+        }
+
+        .badge-uncut {
+            background: linear-gradient(90deg, #e50914 0%, #b20710 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between pb-24 md:pb-8 selection:bg-wave-red selection:text-white">
+
+    <header class="sticky top-0 z-40 glass-panel border-b border-white/10 px-4 py-3 shadow-lg">
+        <div class="max-w-4xl mx-auto flex items-center justify-between">
+            <!-- Brand Logo -->
+            <div class="flex items-center gap-2">
+                <div class="w-9 h-9 rounded-lg bg-wave-red flex items-center justify-center font-black text-xl tracking-tighter shadow-md shadow-wave-red/50">
+                    W
+                </div>
+                <span class="text-2xl font-black tracking-wider uppercase text-white">
+                    WAVE<span class="text-wave-red">OTT</span>
+                </span>
+            </div>
+
+            <!-- Trust Indicator -->
+            <div class="flex items-center gap-2 text-xs bg-white/5 border border-white/10 px-2.5 py-1 rounded-full">
+                <i class="fa-solid fa-shield-halved text-emerald-400"></i>
+                <span class="text-gray-300 font-medium hidden sm:inline">100% Safe & Anti-Virus Clean</span>
+                <span class="text-emerald-400 font-bold sm:hidden">Verified App</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-3 sm:px-4 pt-4 pb-6 w-full flex-grow">
+        
+        <!-- Headline & Urgency Banner -->
+        <div class="text-center mb-4">
+            <div class="inline-flex items-center gap-1.5 bg-wave-red/20 border border-wave-red/40 px-3 py-1 rounded-full text-wave-crimson text-xs font-bold uppercase tracking-wider mb-2 animate-bounce-slow">
+                <i class="fa-solid fa-fire text-amber-400"></i> Trending Hot Release
+            </div>
+            <h1 class="text-2xl sm:text-4xl font-extrabold leading-tight tracking-tight text-white mb-2">
+                Dekhiye <span class="text-wave-red">Exclusive & Uncut</span> Drama Series!
+            </h1>
+            <p class="text-sm sm:text-base text-gray-300">
+                Full HD Stream • No Subscription Fee • Direct Download Below
+            </p>
+        </div>
+
+        <div class="relative w-full rounded-2xl overflow-hidden glass-panel border border-white/15 shadow-2xl bg-black mb-6 group cursor-pointer" onclick="openDownloadModal('player_click')">
+            
+            <!-- Video Thumbnail / GIF Background -->
+            <div class="relative aspect-video w-full overflow-hidden">
+                <!-- High conversion web series thumbnail fallback -->
+                <img 
+                    src="https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1000&auto=format&fit=crop" 
+                    alt="Exclusive Web Series Stream" 
+                    class="w-full h-full object-cover transform scale-105 group-hover:scale-110 transition duration-500 filter brightness-90"
+                    onerror="this.src='https://placehold.co/800x450/141419/ffffff?text=Stream+Now+In+HD+App'"
+                />
+
+                <!-- Dark Gradient Overlays for Video Controls Look -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                
+                <!-- Top Left Badges -->
+                <div class="absolute top-3 left-3 flex gap-2">
+                    <span class="badge-uncut text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-md shadow-md tracking-wider flex items-center gap-1">
+                        <i class="fa-solid fa-lock-open text-[9px]"></i> UNCUT VERSION
+                    </span>
+                    <span class="bg-black/70 backdrop-blur-md text-amber-400 text-[10px] font-bold px-2 py-1 rounded-md border border-amber-400/30">
+                        HD 1080p
+                    </span>
+                </div>
+
+                <!-- Live Viewers Badge (Top Right) -->
+                <div class="absolute top-3 right-3 bg-red-950/80 border border-red-500/30 text-white text-[11px] font-semibold px-2.5 py-1 rounded-full flex items-center gap-1.5 backdrop-blur-md">
+                    <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+                    <span>14.2k Watching</span>
+                </div>
+
+                <!-- Center Animated Play Button -->
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="relative flex items-center justify-center">
+                        <div class="absolute w-20 h-20 rounded-full bg-wave-red/40 animate-ripple"></div>
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 bg-wave-red hover:bg-wave-crimson rounded-full flex items-center justify-center text-white text-2xl sm:text-3xl shadow-xl shadow-wave-red/60 transform group-hover:scale-110 transition">
+                            <i class="fa-solid fa-play ml-1"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Video Player Controls Bar Overlay -->
+                <div class="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-t from-black/95 to-transparent flex flex-col gap-1.5">
+                    <!-- Progress / Scrub Bar -->
+                    <div class="w-full bg-white/20 h-1.5 rounded-full overflow-hidden relative">
+                        <div class="bg-wave-red h-full w-[38%] rounded-full relative">
+                            <div class="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow-md"></div>
+                        </div>
+                    </div>
+
+                    <!-- Time & Controls Icons -->
+                    <div class="flex items-center justify-between text-xs text-gray-300 font-mono pt-1">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-pause text-white"></i>
+                            <i class="fa-solid fa-volume-high text-white"></i>
+                            <span>12:44 / 48:10</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="bg-red-600/80 text-white px-1.5 py-0.5 rounded text-[10px] font-sans font-bold">18+</span>
+                            <i class="fa-solid fa-expand text-white"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="flex flex-col items-center justify-center gap-3 mb-8">
+            <!-- Primary Pulsing Button -->
+            <button 
+                onclick="openDownloadModal('primary_cta')"
+                class="w-full sm:w-4/5 shimmer-btn bg-gradient-to-r from-wave-red via-red-600 to-wave-crimson hover:from-red-600 hover:to-wave-red text-white text-lg sm:text-xl font-extrabold py-4 px-6 rounded-2xl shadow-xl shadow-wave-red/40 animate-pulse-glow flex items-center justify-center gap-3 transform active:scale-95 transition">
+                <i class="fa-solid fa-circle-play text-2xl"></i>
+                <span>WATCH FULL SHOW IN APP</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+            <!-- Trust Bullet Points -->
+            <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-xs text-gray-300 text-center">
+                <span class="flex items-center gap-1">
+                    <i class="fa-solid fa-check text-emerald-400"></i> No Ads Interrupting
+                </span>
+                <span class="flex items-center gap-1">
+                    <i class="fa-solid fa-check text-emerald-400"></i> Unlimited Free Downloads
+                </span>
+                <span class="flex items-center gap-1">
+                    <i class="fa-solid fa-check text-emerald-400"></i> High Speed Server
+                </span>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-2 sm:gap-4 mb-8">
+            <div class="glass-panel p-3 rounded-xl text-center border border-white/5">
+                <div class="text-amber-400 text-base sm:text-lg font-black flex items-center justify-center gap-1">
+                    4.8 <i class="fa-solid fa-star text-sm"></i>
+                </div>
+                <div class="text-[11px] text-gray-400 font-medium">User Rating</div>
+            </div>
+            <div class="glass-panel p-3 rounded-xl text-center border border-white/5">
+                <div class="text-white text-base sm:text-lg font-black">
+                    10M+
+                </div>
+                <div class="text-[11px] text-gray-400 font-medium">Downloads</div>
+            </div>
+            <div class="glass-panel p-3 rounded-xl text-center border border-white/5">
+                <div class="text-emerald-400 text-base sm:text-lg font-black">
+                    FREE
+                </div>
+                <div class="text-[11px] text-gray-400 font-medium">No Card Needed</div>
+            </div>
+        </div>
+
+        <section class="mb-6">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg sm:text-xl font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-fire-flame-curved text-wave-red"></i> Trending Uncut Shows
+                </h2>
+                <span class="text-xs text-wave-red font-semibold cursor-pointer hover:underline" onclick="openDownloadModal('view_all')">
+                    View All &rarr;
+                </span>
+            </div>
+
+            <!-- Show Posters Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+                
+                <!-- Show Card 1 -->
+                <div class="glass-panel rounded-xl overflow-hidden group cursor-pointer border border-white/10 hover:border-wave-red/50 transition" onclick="openDownloadModal('card_1')">
+                    <div class="relative aspect-[3/4] overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=600&auto=format&fit=crop" 
+                             alt="Rani Ka Badla" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                             onerror="this.src='https://placehold.co/300x400/141419/ffffff?text=Show+1'"/>
+                        <div class="absolute top-2 left-2 badge-uncut text-[9px] text-white font-extrabold px-2 py-0.5 rounded shadow">
+                            UNCUT
+                        </div>
+                        <div class="absolute bottom-0 inset-x-0 p-2 bg-gradient-to-t from-black via-black/70 to-transparent">
+                            <span class="text-xs font-bold text-white block truncate">Jalebi Bai S3</span>
+                            <span class="text-[10px] text-gray-300 flex items-center gap-1">
+                                <i class="fa-solid fa-play text-wave-red text-[8px]"></i> 1.2M Views
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Show Card 2 -->
+                <div class="glass-panel rounded-xl overflow-hidden group cursor-pointer border border-white/10 hover:border-wave-red/50 transition" onclick="openDownloadModal('card_2')">
+                    <div class="relative aspect-[3/4] overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=600&auto=format&fit=crop" 
+                             alt="Desi Bhabhi Drama" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                             onerror="this.src='https://placehold.co/300x400/141419/ffffff?text=Show+2'"/>
+                        <div class="absolute top-2 left-2 bg-amber-500 text-black text-[9px] font-black px-2 py-0.5 rounded shadow">
+                            MUST WATCH
+                        </div>
+                        <div class="absolute bottom-0 inset-x-0 p-2 bg-gradient-to-t from-black via-black/70 to-transparent">
+                            <span class="text-xs font-bold text-white block truncate">Charmsukh Special</span>
+                            <span class="text-[10px] text-gray-300 flex items-center gap-1">
+                                <i class="fa-solid fa-play text-wave-red text-[8px]"></i> 980k Views
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Show Card 3 -->
+                <div class="glass-panel rounded-xl overflow-hidden group cursor-pointer border border-white/10 hover:border-wave-red/50 transition" onclick="openDownloadModal('card_3')">
+                    <div class="relative aspect-[3/4] overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop" 
+                             alt="Night Secrets" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                             onerror="this.src='https://placehold.co/300x400/141419/ffffff?text=Show+3'"/>
+                        <div class="absolute top-2 left-2 badge-uncut text-[9px] text-white font-extrabold px-2 py-0.5 rounded shadow">
+                            EXCLUSIVE
+                        </div>
+                        <div class="absolute bottom-0 inset-x-0 p-2 bg-gradient-to-t from-black via-black/70 to-transparent">
+                            <span class="text-xs font-bold text-white block truncate">Night PG Stories</span>
+                            <span class="text-[10px] text-gray-300 flex items-center gap-1">
+                                <i class="fa-solid fa-play text-wave-red text-[8px]"></i> 2.4M Views
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Show Card 4 -->
+                <div class="glass-panel rounded-xl overflow-hidden group cursor-pointer border border-white/10 hover:border-wave-red/50 transition" onclick="openDownloadModal('card_4')">
+                    <div class="relative aspect-[3/4] overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=600&auto=format&fit=crop" 
+                             alt="Hot Romantic Nights" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                             onerror="this.src='https://placehold.co/300x400/141419/ffffff?text=Show+4'"/>
+                        <div class="absolute top-2 left-2 bg-red-600 text-white text-[9px] font-black px-2 py-0.5 rounded shadow">
+                            HOT RELEASE
+                        </div>
+                        <div class="absolute bottom-0 inset-x-0 p-2 bg-gradient-to-t from-black via-black/70 to-transparent">
+                            <span class="text-xs font-bold text-white block truncate">Kavita Bhabhi 4</span>
+                            <span class="text-[10px] text-gray-300 flex items-center gap-1">
+                                <i class="fa-solid fa-play text-wave-red text-[8px]"></i> 3.1M Views
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="fixed bottom-0 inset-x-0 z-30 p-3 bg-wave-dark/95 backdrop-blur-xl border-t border-white/10 sm:hidden">
+            <button 
+                onclick="openDownloadModal('sticky_footer')"
+                class="w-full bg-wave-red hover:bg-wave-crimson text-white font-extrabold py-3.5 px-4 rounded-xl shadow-lg shadow-wave-red/50 flex items-center justify-center gap-2 text-base tracking-wide shimmer-btn">
+                <i class="fa-solid fa-download"></i>
+                <span>DOWNLOAD APP TO WATCH FULL</span>
+            </button>
+        </div>
+
+    </main>
+
+    <div id="downloadModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md hidden transition-opacity duration-300 opacity-0">
+        <div class="glass-panel w-full max-w-md rounded-2xl border border-white/20 p-6 relative shadow-2xl text-center transform scale-95 transition-transform duration-300" id="modalCard">
+            
+            <!-- Close Button -->
+            <button onclick="closeDownloadModal()" class="absolute top-3 right-3 text-gray-400 hover:text-white w-8 h-8 rounded-full bg-white/5 flex items-center justify-center">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Modal Header Icon -->
+            <div class="w-16 h-16 bg-wave-red/20 border border-wave-red/50 rounded-2xl flex items-center justify-center mx-auto mb-4 text-wave-crimson text-3xl shadow-lg shadow-wave-red/30">
+                <i class="fa-solid fa-circle-arrow-down"></i>
+            </div>
+
+            <!-- Modal Title & Instruction -->
+            <h3 class="text-xl font-black text-white mb-1">
+                Full Uncut Episode Locked!
+            </h3>
+            <p class="text-xs text-gray-300 mb-4">
+                Pura show HD mein dekhne ke liye <span class="text-wave-red font-bold">Wave OTT App</span> download karein. Direct APK download starts below:
+            </p>
+
+            <!-- Auto Redirect / Countdown Bar -->
+            <div class="bg-white/5 rounded-xl p-3 border border-white/10 mb-5 text-left">
+                <div class="flex justify-between items-center text-xs font-semibold text-gray-300 mb-1">
+                    <span>Downloading App Package...</span>
+                    <span id="countdownText" class="text-wave-red font-bold">5s</span>
+                </div>
+                <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+                    <div id="modalProgressBar" class="bg-wave-red h-full w-0 transition-all duration-1000 ease-linear"></div>
+                </div>
+            </div>
+
+            <!-- Direct Download Trigger CTA Button -->
+            <a 
+                href="https://example.com/download-wave-ott.apk" 
+                target="_blank" 
+                rel="noopener"
+                onclick="handleDirectDownload(event)"
+                class="w-full shimmer-btn bg-gradient-to-r from-wave-red to-wave-crimson text-white font-black py-4 px-6 rounded-xl shadow-xl shadow-wave-red/40 flex items-center justify-center gap-2 text-lg mb-3">
+                <i class="fa-solid fa-download text-xl"></i>
+                <span>INSTALL APP NOW (FREE)</span>
+            </a>
+
+            <!-- Safety Badges footer -->
+            <div class="flex items-center justify-center gap-4 text-[10px] text-gray-400 border-t border-white/10 pt-3">
+                <span class="flex items-center gap-1">
+                    <i class="fa-solid fa-shield text-emerald-400"></i> Anti-Virus Verified
+                </span>
+                <span class="flex items-center gap-1">
+                    <i class="fa-solid fa-bolt text-amber-400"></i> Fast Download
+                </span>
+                <span class="flex items-center gap-1">
+                    <i class="fa-solid fa-circle-check text-blue-400"></i> Version 4.2.1
+                </span>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Modal Element References
+        const downloadModal = document.getElementById('downloadModal');
+        const modalCard = document.getElementById('modalCard');
+        const countdownText = document.getElementById('countdownText');
+        const progressBar = document.getElementById('modalProgressBar');
+        
+        let timerInterval = null;
+        let secondsRemaining = 5;
+
+        // Function to trigger & display download modal
+        function openDownloadModal(source) {
+            console.log('Conversion triggered from:', source);
+            
+            // Show Modal Backdrop
+            downloadModal.classList.remove('hidden');
+            setTimeout(() => {
+                downloadModal.classList.remove('opacity-0');
+                modalCard.classList.remove('scale-95');
+                modalCard.classList.add('scale-100');
+            }, 10);
+
+            // Start Simulated Download Countdown
+            startCountdown();
+        }
+
+        // Function to close modal
+        function closeDownloadModal() {
+            downloadModal.classList.add('opacity-0');
+            modalCard.classList.remove('scale-100');
+            modalCard.classList.add('scale-95');
+            
+            setTimeout(() => {
+                downloadModal.classList.add('hidden');
+                resetCountdown();
+            }, 300);
+        }
+
+        // Timer Countdown Handler
+        function startCountdown() {
+            resetCountdown();
+            secondsRemaining = 5;
+            
+            // Animate progress bar
+            progressBar.style.width = '100%';
+            
+            timerInterval = setInterval(() => {
+                secondsRemaining--;
+                countdownText.innerText = secondsRemaining + 's';
+                
+                if (secondsRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    countdownText.innerText = 'Ready!';
+                    // Optional: Auto redirect after countdown completes
+                    // window.location.href = "YOUR_OFFER_OR_APK_URL_HERE";
+                }
+            }, 1000);
+        }
+
+        function resetCountdown() {
+            if (timerInterval) clearInterval(timerInterval);
+            progressBar.style.width = '0%';
+            countdownText.innerText = '5s';
+        }
+
+        // Custom CTA Click Handler
+        function handleDirectDownload(e) {
+            // Put your actual tracking link or APK direct link logic here
+            // e.preventDefault(); // Uncomment if handling via JS redirect
+            alert("App download shuru ho raha hai! Please wait...");
+        }
+
+        // Auto Popup Hook for DSP bounce traffic after 12 seconds if inactive
+        let autoPopupFired = false;
+        setTimeout(() => {
+            if (!autoPopupFired && downloadModal.classList.contains('hidden')) {
+                autoPopupFired = true;
+                openDownloadModal('auto_timer');
+            }
+        }, 12000);
+    </script>
+</body>
+</html>
