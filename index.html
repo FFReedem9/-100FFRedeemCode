@@ -1,191 +1,210 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wave OTT Premium - Uncut Web Series</title>
-  <!-- Tailwind CSS CDN -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Watch Live Stream HD</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- FontAwesome Icons CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    @keyframes pulse-glow {
-      0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(220, 38, 38, 0.7); }
-      50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(220, 38, 38, 1); }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
     }
-    .btn-glow {
-      animation: pulse-glow 1.8s infinite ease-in-out;
+    .blink-fast { animation: blink 0.8s infinite; }
+    
+    @keyframes pulse-btn {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+      70% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
     }
+    .btn-trap { animation: pulse-btn 1.5s infinite; }
   </style>
 </head>
 <body class="bg-black text-white font-sans antialiased min-h-screen flex flex-col justify-between select-none">
 
+  <!-- Top Alert Bar -->
+  <div class="bg-red-600 text-black font-black text-center text-xs py-1 px-2 uppercase tracking-widest flex items-center justify-center gap-1">
+    <i class="fa-solid fa-triangle-exclamation text-black blink-fast"></i>
+    <span>WARNING: 18+ HARDCORE CONTENT ONLY</span>
+  </div>
+
   <!-- Header Section -->
-  <header class="w-full bg-neutral-900/90 border-b border-red-900/40 sticky top-0 z-40 px-4 py-2.5 flex items-center justify-between backdrop-blur-md">
-    <div class="flex items-center space-x-2">
-      <div class="bg-gradient-to-r from-red-600 to-rose-700 text-white font-black text-xl px-2.5 py-0.5 rounded shadow-lg tracking-widest">
-        WAVE
-      </div>
-      <span class="text-[10px] font-extrabold text-red-500 uppercase tracking-widest border border-red-500/30 px-1.5 py-0.5 rounded">
-        18+ UNCUT
-      </span>
+  <header class="w-full bg-neutral-900 border-b border-neutral-800 px-3 py-2 flex items-center justify-between">
+    <div class="flex items-center space-x-1.5">
+      <span class="bg-yellow-400 text-black font-black text-lg px-2 py-0.5 rounded">DESI</span>
+      <span class="text-red-500 font-extrabold text-lg tracking-wider">HUB</span>
+      <span class="bg-red-600 text-white text-[9px] font-bold px-1 rounded ml-1">LIVE</span>
     </div>
-    <div class="flex items-center space-x-2 text-xs">
-      <span class="flex items-center gap-1 text-xs font-bold text-red-400 bg-red-950/80 border border-red-800/60 px-2.5 py-1 rounded-full">
-        <i class="fa-solid fa-[#10B981] fa-circle text-[8px] animate-pulse text-green-400"></i> Live 4K Stream
-      </span>
+    <div class="text-xs font-bold text-green-400 flex items-center gap-1">
+      <span class="w-2 h-2 rounded-full bg-green-500 animate-ping"></span>
+      <span>12,840 ONLINE</span>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="max-w-md mx-auto w-full px-3 py-3 flex-grow flex flex-col">
+  <!-- Main Content Area -->
+  <main class="max-w-md mx-auto w-full px-2 py-2 flex-grow flex flex-col justify-center">
 
-    <!-- Spicy Attention Banner -->
-    <div class="text-center mb-2">
-      <span class="inline-block bg-gradient-to-r from-amber-500 to-red-600 text-black font-black text-[11px] px-3 py-0.5 rounded-full uppercase tracking-wider mb-1 shadow-md">
-        🔥 MOST SEARCHED DESI SHOWS
-      </span>
-      <h1 class="text-lg sm:text-xl font-black leading-tight text-red-500 uppercase tracking-wide">
-        Sabse Hot & Uncut Episodes Direct Stream Karein!
+    <!-- Adult Video Title Trap -->
+    <div class="my-1 text-left px-1">
+      <h1 class="text-sm font-black text-yellow-400 leading-tight">
+        🔥 [FULL UNCUT] Desi Bhabhi Private MMS Leaked Video (1080p)
       </h1>
-      <p class="text-[11px] text-gray-300 font-semibold mt-0.5">
-        No Registration • Full HD 1080p • Fast Download
+      <p class="text-[10px] text-gray-400 mt-0.5 flex items-center gap-2">
+        <span><i class="fa-solid fa-eye text-red-500"></i> 1.4M Views</span> • 
+        <span class="text-green-400"><i class="fa-solid fa-thumbs-up"></i> 98.4%</span> • 
+        <span>45 Min Full Video</span>
       </p>
     </div>
 
-    <!-- Main Simulated Player (High-CTR Hook) -->
-    <div onclick="openModal()" class="relative w-full aspect-video bg-neutral-900 rounded-xl overflow-hidden border-2 border-red-600/80 shadow-2xl cursor-pointer group my-2">
-      <!-- Hot Teaser Thumbnail -->
-      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop" 
-           alt="Uncut Stream Preview" 
-           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 filter brightness-90">
+    <!-- Hardcore Fake Player Box -->
+    <div onclick="redirectOrModal()" class="relative w-full aspect-video bg-neutral-900 rounded-lg overflow-hidden border-2 border-red-600 shadow-2xl cursor-pointer group my-1">
       
-      <!-- Dark Gradient Overlay -->
-      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/50"></div>
+      <!-- Spicy Adult Teaser Image -->
+      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop" 
+           alt="Sex Video Preview" 
+           class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+      
+      <!-- Dark Mask Filter -->
+      <div class="absolute inset-0 bg-black/40"></div>
 
-      <!-- Top Tags -->
-      <div class="absolute top-2 left-2 right-2 flex justify-between items-center text-[10px]">
-        <span class="bg-red-600 text-white font-black px-2 py-0.5 rounded shadow tracking-wider flex items-center gap-1">
-          <i class="fa-solid fa-[#10B981] fa-circle text-[6px] animate-ping"></i> UNCUT 18+
-        </span>
-        <span class="bg-black/80 backdrop-blur-sm text-yellow-400 border border-yellow-500/40 font-bold px-2 py-0.5 rounded">
-          <i class="fa-solid fa-eye text-red-500"></i> 48.2k Watching
-        </span>
+      <!-- Player Overlay Elements -->
+      <!-- Top Left: Sound Alert -->
+      <div class="absolute top-2 left-2 bg-black/80 text-yellow-400 text-[10px] font-bold px-2 py-1 rounded border border-yellow-400/40 flex items-center gap-1">
+        <i class="fa-solid fa-volume-xmark text-red-500 blink-fast"></i> CLICK TO UNMUTE AUDIO
       </div>
 
-      <!-- Big Glowing Play Button -->
+      <!-- Top Right: Quality Badge -->
+      <div class="absolute top-2 right-2 bg-red-600 text-white text-[9px] font-black px-1.5 py-0.5 rounded uppercase shadow">
+        4K ULTRA HD
+      </div>
+
+      <!-- Center: Massive Glowing Play Button -->
       <div class="absolute inset-0 flex items-center justify-center">
-        <div class="w-16 h-16 bg-gradient-to-tr from-red-700 via-red-600 to-rose-500 text-white rounded-full flex items-center justify-center shadow-2xl btn-glow">
-          <i class="fa-solid fa-play text-2xl ml-1 text-white"></i>
+        <div class="w-18 h-18 bg-red-600/90 text-white rounded-full flex items-center justify-center p-4 border-4 border-white/80 shadow-2xl btn-trap">
+          <i class="fa-solid fa-play text-3xl ml-1 text-white"></i>
         </div>
       </div>
 
-      <!-- Fake Progress & Duration Bar -->
-      <div class="absolute bottom-0 inset-x-0 p-2.5 bg-gradient-to-t from-black via-black/80 to-transparent">
+      <!-- Bottom: Fake Player Bar -->
+      <div class="absolute bottom-0 inset-x-0 p-2 bg-gradient-to-t from-black via-black/90 to-transparent">
         <div class="flex justify-between text-[10px] text-gray-200 mb-1 font-mono font-bold">
-          <span class="text-red-400">02:14 / 38:45</span>
-          <span class="bg-red-600/90 text-white px-1.5 py-0.5 rounded animate-pulse">TAP TO PLAY FULL EPISODE</span>
+          <span class="text-red-500">00:03 / 45:12</span>
+          <span class="text-yellow-400 font-extrabold blink-fast">TAP TO STREAM FULL VIDEO ▶</span>
         </div>
-        <div class="w-full bg-neutral-800 rounded-full h-1.5 overflow-hidden border border-neutral-700">
-          <div class="bg-gradient-to-r from-red-600 to-rose-500 h-full w-[28%]"></div>
+        <div class="w-full bg-neutral-800 rounded-full h-2 overflow-hidden border border-neutral-700">
+          <div class="bg-red-600 h-full w-[5%]"></div>
         </div>
       </div>
     </div>
 
-    <!-- Main High-Conversion CTA Button -->
-    <button onclick="openModal()" class="w-full my-2 bg-gradient-to-r from-red-600 via-rose-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-black text-base py-3 px-4 rounded-xl shadow-xl border border-red-400/40 flex items-center justify-center gap-2 transform active:scale-95 transition-all">
-      <i class="fa-solid fa-play-circle text-xl animate-bounce"></i>
-      <span class="uppercase tracking-wide">CONTINUE WATCHING IN HD APP</span>
+    <!-- Aggressive Main CTA Button -->
+    <button onclick="redirectOrModal()" class="w-full my-2 bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 hover:from-green-400 hover:to-green-500 text-black font-black text-base py-3.5 px-3 rounded-xl shadow-2xl border-2 border-green-300 flex items-center justify-center gap-2 transform active:scale-95 transition-all btn-trap">
+      <i class="fa-solid fa-download text-xl animate-bounce"></i>
+      <span class="uppercase tracking-wider">DOWNLOAD APP TO WATCH FULL VIDEO</span>
     </button>
 
-    <!-- Hot Trending Grid -->
-    <div class="mt-4 mb-2 flex justify-between items-center border-b border-neutral-800 pb-1">
-      <h2 class="text-xs font-black text-red-500 tracking-wider uppercase flex items-center gap-1">
-        <i class="fa-solid fa-fire text-amber-500"></i> Exclusive Hot Releases
-      </h2>
-      <span class="text-[10px] text-gray-400 font-bold">Updated Just Now</span>
+    <!-- Urgency Counter Box -->
+    <div class="bg-neutral-900 border border-neutral-800 rounded-lg p-2 my-1 text-center">
+      <p class="text-[11px] text-gray-300">
+        ⚡ Free HD Streaming Ends In: <span id="timer" class="text-red-500 font-black">04:59</span>
+      </p>
     </div>
 
-    <!-- Grid Items -->
-    <div class="grid grid-cols-2 gap-2.5">
-      <!-- Item 1 -->
-      <div onclick="openModal()" class="relative bg-neutral-900 rounded-lg overflow-hidden border border-neutral-800 cursor-pointer group">
-        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop" alt="Show 1" class="w-full h-36 object-cover group-hover:scale-105 transition-transform opacity-85">
-        <div class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[9px] font-black px-1.5 py-0.5 rounded shadow">DESI UNCUT</div>
-        <div class="p-2 bg-neutral-950">
-          <p class="text-xs font-bold truncate text-white">Night Special S02</p>
-          <p class="text-[10px] text-gray-400">Full Uncut Episode</p>
-        </div>
+    <!-- Fake Related Adult Video Thumbnails Grid -->
+    <div class="mt-3">
+      <div class="text-xs font-black text-red-500 uppercase tracking-wide mb-1 flex items-center gap-1">
+        <i class="fa-solid fa-fire text-amber-500"></i> Hot Recommended Videos
       </div>
 
-      <!-- Item 2 -->
-      <div onclick="openModal()" class="relative bg-neutral-900 rounded-lg overflow-hidden border border-neutral-800 cursor-pointer group">
-        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400&auto=format&fit=crop" alt="Show 2" class="w-full h-36 object-cover group-hover:scale-105 transition-transform opacity-85">
-        <div class="absolute top-1.5 left-1.5 bg-amber-500 text-black text-[9px] font-black px-1.5 py-0.5 rounded shadow">TRENDING 18+</div>
-        <div class="p-2 bg-neutral-950">
-          <p class="text-xs font-bold truncate text-white">PG House Tales</p>
-          <p class="text-[10px] text-gray-400">HD Streaming Available</p>
+      <div class="grid grid-cols-2 gap-2">
+        <!-- Related 1 -->
+        <div onclick="redirectOrModal()" class="relative bg-neutral-900 rounded overflow-hidden border border-neutral-800 cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=400&auto=format&fit=crop" class="w-full h-24 object-cover">
+          <span class="absolute bottom-1 right-1 bg-black/80 text-white text-[9px] px-1 rounded font-mono">28:10</span>
+          <div class="p-1">
+            <p class="text-[11px] font-bold truncate text-gray-200">Desi College Girl Romance</p>
+            <p class="text-[9px] text-gray-400">100% Free Stream</p>
+          </div>
+        </div>
+
+        <!-- Related 2 -->
+        <div onclick="redirectOrModal()" class="relative bg-neutral-900 rounded overflow-hidden border border-neutral-800 cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400&auto=format&fit=crop" class="w-full h-24 object-cover">
+          <span class="absolute bottom-1 right-1 bg-black/80 text-white text-[9px] px-1 rounded font-mono">35:40</span>
+          <div class="p-1">
+            <p class="text-[11px] font-bold truncate text-gray-200">Hotel Room Uncut MMS</p>
+            <p class="text-[9px] text-gray-400">1080p HD Quality</p>
+          </div>
         </div>
       </div>
     </div>
 
   </main>
 
-  <!-- Download Modal Triggered On Any Click -->
-  <div id="downloadModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden items-center justify-center p-4">
-    <div class="bg-neutral-900 border-2 border-red-600/80 rounded-2xl p-5 max-w-xs w-full text-center relative shadow-2xl">
+  <!-- High-Conversion Action Popup Modal -->
+  <div id="adultModal" class="fixed inset-0 bg-black/95 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+    <div class="bg-neutral-900 border-2 border-red-600 rounded-2xl p-4 max-w-xs w-full text-center relative shadow-2xl">
       
       <!-- Close Button -->
-      <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-400 hover:text-white text-base">
+      <button onclick="closeModal()" class="absolute top-2 right-3 text-gray-400 text-lg">
         <i class="fa-solid fa-xmark"></i>
       </button>
 
-      <!-- App Logo -->
-      <div class="w-16 h-16 bg-gradient-to-tr from-red-700 via-red-600 to-rose-500 rounded-2xl mx-auto flex items-center justify-center shadow-lg shadow-red-600/50 mb-3 border border-red-400">
-        <span class="text-white font-black text-2xl tracking-widest">W</span>
+      <div class="w-14 h-14 bg-red-600 rounded-2xl mx-auto flex items-center justify-center shadow-lg shadow-red-600/50 mb-2 border border-yellow-400">
+        <i class="fa-solid fa-play text-2xl text-white"></i>
       </div>
 
-      <h3 class="text-lg font-black text-white uppercase tracking-wide">Wave OTT Premium</h3>
-      <p class="text-xs text-red-400 font-bold mt-0.5">Watch Full Uncut Video Without Ads</p>
+      <h3 class="text-base font-black text-yellow-400 uppercase tracking-wide">Age Verification Required!</h3>
+      <p class="text-xs text-gray-200 font-bold mt-1">Download Official App to Unlock Full Uncut HD Video Video (No Ads)</p>
 
-      <div class="my-4 bg-black/80 p-3 rounded-xl border border-neutral-800 text-left space-y-2">
-        <div class="flex items-center text-xs text-gray-200 gap-2 font-medium">
-          <i class="fa-solid fa-circle-check text-green-400"></i> Direct HD Fast Player
-        </div>
-        <div class="flex items-center text-xs text-gray-200 gap-2 font-medium">
-          <i class="fa-solid fa-circle-check text-green-400"></i> 100% Free Access Enabled
-        </div>
-        <div class="flex items-center text-xs text-gray-200 gap-2 font-medium">
-          <i class="fa-solid fa-circle-check text-green-400"></i> Anti-Lags & No Buffer
-        </div>
+      <div class="my-3 bg-black/90 p-2.5 rounded-xl border border-neutral-800 text-left space-y-1.5">
+        <p class="text-[11px] text-green-400 font-bold"><i class="fa-solid fa-check"></i> 100% Free & Anonymous</p>
+        <p class="text-[11px] text-green-400 font-bold"><i class="fa-solid fa-check"></i> Instant Fast Download</p>
+        <p class="text-[11px] text-green-400 font-bold"><i class="fa-solid fa-check"></i> Direct Player Unlocked</p>
       </div>
 
-      <!-- MAIN ACTION TARGET LINK -->
+      <!-- MAIN TARGET LINK (YOUR APK / AFFILIATE LINK HERE) -->
       <a href="YOUR_OFFER_OR_APK_LINK_HERE" 
-         class="w-full block bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-black font-black text-base py-3.5 px-4 rounded-xl shadow-lg shadow-green-500/30 transition-all uppercase tracking-wider">
-        📥 DOWNLOAD & WATCH NOW
+         class="w-full block bg-gradient-to-r from-red-600 via-rose-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-black text-base py-3 px-3 rounded-xl shadow-lg border border-red-400 transition-all uppercase tracking-wider btn-trap">
+        📥 DOWNLOAD APK (11 MB)
       </a>
       
-      <p class="text-[10px] text-gray-400 mt-2 font-bold">Size: 11.8 MB • Android & iOS Support</p>
+      <p class="text-[9px] text-gray-400 mt-2">Compatible with Android & iOS Devices</p>
     </div>
   </div>
 
   <!-- Footer -->
-  <footer class="w-full bg-neutral-950 border-t border-neutral-900 py-3 text-center text-[10px] text-gray-500">
-    <p>© 2026 Wave OTT Network. 18+ Content Only.</p>
+  <footer class="w-full bg-neutral-950 border-t border-neutral-900 py-2 text-center text-[9px] text-gray-600">
+    <p>18+ Adult Streaming Network. All rights reserved.</p>
   </footer>
 
-  <!-- Script Logic -->
+  <!-- Interactive JavaScript Logic -->
   <script>
-    function openModal() {
-      document.getElementById('downloadModal').classList.remove('hidden');
-      document.getElementById('downloadModal').classList.add('flex');
+    // Direct Redirect or Show Download Modal
+    function redirectOrModal() {
+      // Direct Offer Redirect Link (Optional)
+      // window.location.href = "YOUR_OFFER_OR_APK_LINK_HERE";
+      
+      // Or Show High Conversion Modal
+      document.getElementById('adultModal').classList.remove('hidden');
+      document.getElementById('adultModal').classList.add('flex');
     }
 
     function closeModal() {
-      document.getElementById('downloadModal').classList.add('hidden');
-      document.getElementById('downloadModal').classList.remove('flex');
+      document.getElementById('adultModal').classList.add('hidden');
+      document.getElementById('adultModal').classList.remove('flex');
     }
+
+    // Countdown Timer Logic
+    let time = 299;
+    setInterval(() => {
+      let minutes = Math.floor(time / 60);
+      let seconds = time % 60;
+      seconds = seconds < 10 ? '0' + seconds : seconds;
+      document.getElementById('timer').innerHTML = `0${minutes}:${seconds}`;
+      if (time > 0) time--;
+    }, 1000);
   </script>
 </body>
 </html>
