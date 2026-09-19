@@ -1,210 +1,519 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Watch Live Stream HD</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-    .blink-fast { animation: blink 0.8s infinite; }
-    
-    @keyframes pulse-btn {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
-      70% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
-    }
-    .btn-trap { animation: pulse-btn 1.5s infinite; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Fire - Exclusive ₹100 Redeem Code Event</title>
+
+<style>
+:root {
+    --ff-dark-bg: #05070d;
+    --ff-panel-bg: #0f172a;
+    --ff-orange: #ff4500;
+    --ff-gold: #ffb703;
+    --ff-cyan: #00f2fe;
+    --ff-green: #10b981;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
+    background: var(--ff-dark-bg);
+    background-image: 
+        radial-gradient(circle at 50% 0%, #1e1b4b 0%, transparent 60%),
+        radial-gradient(circle at 50% 100%, #090d16 0%, transparent 60%);
+    color: #ffffff;
+    padding-bottom: 35px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.container{
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 12px;
+}
+
+.ff-lobby-header {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    border: 2px solid var(--ff-gold);
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+    margin-bottom: 12px;
+    box-shadow: 0 0 15px rgba(255, 183, 3, 0.4);
+    animation: borderGlow 1s infinite alternate;
+}
+
+@keyframes borderGlow {
+    0% { border-color: var(--ff-gold); box-shadow: 0 0 10px rgba(255, 183, 3, 0.3); }
+    100% { border-color: var(--ff-orange); box-shadow: 0 0 20px rgba(255, 69, 0, 0.7); }
+}
+
+.ff-lobby-header h1 {
+    font-size: 19px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--ff-gold);
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.ff-lobby-header p {
+    font-size: 11px;
+    color: #93c5fd;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+.ticker {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid var(--ff-green);
+    color: #34d399;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.stock-bar {
+    background: linear-gradient(90deg, #991b1b, #dc2626);
+    color: #fff;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 900;
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #f87171;
+    box-shadow: 0 0 12px rgba(220, 38, 38, 0.6);
+    animation: fastBlink 0.8s infinite;
+}
+
+@keyframes fastBlink {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+.timer-bar {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid #ef4444;
+    color: #fca5a5;
+    text-align: center;
+    font-weight: 800;
+    font-size: 12px;
+    padding: 6px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.video-box{
+    position: relative;
+    width: 100%;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    border: 2px solid var(--ff-orange);
+    box-shadow: 0 0 25px rgba(255, 69, 0, 0.4);
+}
+
+.video-box video{
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.video-touch-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background: transparent;
+}
+
+.unmute-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--ff-orange);
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 900;
+    box-shadow: 0 0 12px var(--ff-orange);
+    animation: soundPulse 0.9s infinite;
+    z-index: 10;
+    pointer-events: none;
+}
+
+@keyframes soundPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+.offer-card {
+    background: var(--ff-panel-bg);
+    border-radius: 14px;
+    padding: 14px;
+    border: 2px solid var(--ff-cyan);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    margin-bottom: 16px;
+}
+
+.offer-tags {
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.tag-gold {
+    background: var(--ff-gold);
+    color: #000;
+    font-size: 9px;
+    font-weight: 900;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.tag-cyan {
+    background: var(--ff-cyan);
+    color: #000;
+    font-size: 9px;
+    font-weight: 900;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.offer-body {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.offer-image-wrap {
+    width: 40%;
+    flex-shrink: 0;
+}
+
+.offer-image-wrap img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    box-shadow: 0 0 12px rgba(0, 242, 254, 0.3);
+    border: 1px solid var(--ff-cyan);
+}
+
+.offer-info {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.code-title {
+    font-size: 16px;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 3px;
+}
+
+.subtitle {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ff-cyan);
+    margin-bottom: 4px;
+}
+
+.stars {
+    color: var(--ff-gold);
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.claim-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    padding: 13px 6px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #ff4500, #ffb703, #ff4500);
+    background-size: 200% auto;
+    color: #000000;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 900;
+    text-transform: uppercase;
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.8);
+    animation: btnShine 1s linear infinite, btnBounce 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes btnShine {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+@keyframes btnBounce {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.04); }
+}
+
+.users-box {
+    text-align: center;
+    padding: 14px;
+    background: var(--ff-panel-bg);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    margin-bottom: 16px;
+}
+
+.users-title {
+    font-size: 11px;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.users-number {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--ff-cyan);
+    margin: 4px 0;
+}
+
+.reviews-card {
+    background: var(--ff-panel-bg);
+    border-radius: 12px;
+    padding: 14px;
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    margin-bottom: 16px;
+}
+
+.reviews-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--ff-cyan);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.review-item {
+    padding: 4px 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.review-user {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ff-gold);
+}
+
+.review-text {
+    font-size: 11px;
+    color: #cbd5e1;
+    margin-top: 2px;
+}
+
+.notice {
+    text-align: center;
+    font-size: 10px;
+    color: #64748b;
+}
+</style>
 </head>
-<body class="bg-black text-white font-sans antialiased min-h-screen flex flex-col justify-between select-none">
 
-  <!-- Top Alert Bar -->
-  <div class="bg-red-600 text-black font-black text-center text-xs py-1 px-2 uppercase tracking-widest flex items-center justify-center gap-1">
-    <i class="fa-solid fa-triangle-exclamation text-black blink-fast"></i>
-    <span>WARNING: 18+ HARDCORE CONTENT ONLY</span>
-  </div>
+<body>
 
-  <!-- Header Section -->
-  <header class="w-full bg-neutral-900 border-b border-neutral-800 px-3 py-2 flex items-center justify-between">
-    <div class="flex items-center space-x-1.5">
-      <span class="bg-yellow-400 text-black font-black text-lg px-2 py-0.5 rounded">DESI</span>
-      <span class="text-red-500 font-extrabold text-lg tracking-wider">HUB</span>
-      <span class="bg-red-600 text-white text-[9px] font-bold px-1 rounded ml-1">LIVE</span>
-    </div>
-    <div class="text-xs font-bold text-green-400 flex items-center gap-1">
-      <span class="w-2 h-2 rounded-full bg-green-500 animate-ping"></span>
-      <span>12,840 ONLINE</span>
-    </div>
-  </header>
+<div class="container">
 
-  <!-- Main Content Area -->
-  <main class="max-w-md mx-auto w-full px-2 py-2 flex-grow flex flex-col justify-center">
-
-    <!-- Adult Video Title Trap -->
-    <div class="my-1 text-left px-1">
-      <h1 class="text-sm font-black text-yellow-400 leading-tight">
-        🔥 [FULL UNCUT] Desi Bhabhi Private MMS Leaked Video (1080p)
-      </h1>
-      <p class="text-[10px] text-gray-400 mt-0.5 flex items-center gap-2">
-        <span><i class="fa-solid fa-eye text-red-500"></i> 1.4M Views</span> • 
-        <span class="text-green-400"><i class="fa-solid fa-thumbs-up"></i> 98.4%</span> • 
-        <span>45 Min Full Video</span>
-      </p>
+    <div class="ff-lobby-header">
+        <h1>⚡ FREE FIRE REWARD CENTER ⚡</h1>
+        <p>Official Google Play ₹100 Code Event</p>
     </div>
 
-    <!-- Hardcore Fake Player Box -->
-    <div onclick="redirectOrModal()" class="relative w-full aspect-video bg-neutral-900 rounded-lg overflow-hidden border-2 border-red-600 shadow-2xl cursor-pointer group my-1">
-      
-      <!-- Spicy Adult Teaser Image -->
-      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop" 
-           alt="Sex Video Preview" 
-           class="w-full h-full object-cover group-hover:scale-105 transition-transform">
-      
-      <!-- Dark Mask Filter -->
-      <div class="absolute inset-0 bg-black/40"></div>
+    <div class="ticker" id="ticker">
+        🔥 Recent Claim: <span id="recent-user">Aman_FF</span> just claimed ₹100 Code!
+    </div>
 
-      <!-- Player Overlay Elements -->
-      <!-- Top Left: Sound Alert -->
-      <div class="absolute top-2 left-2 bg-black/80 text-yellow-400 text-[10px] font-bold px-2 py-1 rounded border border-yellow-400/40 flex items-center gap-1">
-        <i class="fa-solid fa-volume-xmark text-red-500 blink-fast"></i> CLICK TO UNMUTE AUDIO
-      </div>
+    <div class="stock-bar">
+        ⚠️ ONLY <span id="stock-count">12</span> REDEEM CODES LEFT TODAY!
+    </div>
 
-      <!-- Top Right: Quality Badge -->
-      <div class="absolute top-2 right-2 bg-red-600 text-white text-[9px] font-black px-1.5 py-0.5 rounded uppercase shadow">
-        4K ULTRA HD
-      </div>
+    <div class="timer-bar">
+        ⏳ EVENT ENDS IN: <span id="timer">04:59</span> MINS
+    </div>
 
-      <!-- Center: Massive Glowing Play Button -->
-      <div class="absolute inset-0 flex items-center justify-center">
-        <div class="w-18 h-18 bg-red-600/90 text-white rounded-full flex items-center justify-center p-4 border-4 border-white/80 shadow-2xl btn-trap">
-          <i class="fa-solid fa-play text-3xl ml-1 text-white"></i>
+    <div class="video-box" id="videoBox">
+        <div class="unmute-badge" id="unmuteBadge">
+            🔊 Tap For Sound
         </div>
-      </div>
-
-      <!-- Bottom: Fake Player Bar -->
-      <div class="absolute bottom-0 inset-x-0 p-2 bg-gradient-to-t from-black via-black/90 to-transparent">
-        <div class="flex justify-between text-[10px] text-gray-200 mb-1 font-mono font-bold">
-          <span class="text-red-500">00:03 / 45:12</span>
-          <span class="text-yellow-400 font-extrabold blink-fast">TAP TO STREAM FULL VIDEO ▶</span>
-        </div>
-        <div class="w-full bg-neutral-800 rounded-full h-2 overflow-hidden border border-neutral-700">
-          <div class="bg-red-600 h-full w-[5%]"></div>
-        </div>
-      </div>
+        <div class="video-touch-mask"></div>
+        <video id="myVideo" autoplay muted loop playsinline preload="auto">
+            <source src="GIFT-CARD-OFFER-TELEGRAM-CHANNEL-WEBSITE-VIDEO-500rs-redeem-code 11.mp4" type="video/mp4">
+        </video>
     </div>
 
-    <!-- Aggressive Main CTA Button -->
-    <button onclick="redirectOrModal()" class="w-full my-2 bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 hover:from-green-400 hover:to-green-500 text-black font-black text-base py-3.5 px-3 rounded-xl shadow-2xl border-2 border-green-300 flex items-center justify-center gap-2 transform active:scale-95 transition-all btn-trap">
-      <i class="fa-solid fa-download text-xl animate-bounce"></i>
-      <span class="uppercase tracking-wider">DOWNLOAD APP TO WATCH FULL VIDEO</span>
-    </button>
-
-    <!-- Urgency Counter Box -->
-    <div class="bg-neutral-900 border border-neutral-800 rounded-lg p-2 my-1 text-center">
-      <p class="text-[11px] text-gray-300">
-        ⚡ Free HD Streaming Ends In: <span id="timer" class="text-red-500 font-black">04:59</span>
-      </p>
-    </div>
-
-    <!-- Fake Related Adult Video Thumbnails Grid -->
-    <div class="mt-3">
-      <div class="text-xs font-black text-red-500 uppercase tracking-wide mb-1 flex items-center gap-1">
-        <i class="fa-solid fa-fire text-amber-500"></i> Hot Recommended Videos
-      </div>
-
-      <div class="grid grid-cols-2 gap-2">
-        <!-- Related 1 -->
-        <div onclick="redirectOrModal()" class="relative bg-neutral-900 rounded overflow-hidden border border-neutral-800 cursor-pointer">
-          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=400&auto=format&fit=crop" class="w-full h-24 object-cover">
-          <span class="absolute bottom-1 right-1 bg-black/80 text-white text-[9px] px-1 rounded font-mono">28:10</span>
-          <div class="p-1">
-            <p class="text-[11px] font-bold truncate text-gray-200">Desi College Girl Romance</p>
-            <p class="text-[9px] text-gray-400">100% Free Stream</p>
-          </div>
+    <div class="offer-card">
+        <div class="offer-tags">
+            <span class="tag-gold">INSTANT DROP</span>
+            <span class="tag-cyan">VERIFIED</span>
         </div>
 
-        <!-- Related 2 -->
-        <div onclick="redirectOrModal()" class="relative bg-neutral-900 rounded overflow-hidden border border-neutral-800 cursor-pointer">
-          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400&auto=format&fit=crop" class="w-full h-24 object-cover">
-          <span class="absolute bottom-1 right-1 bg-black/80 text-white text-[9px] px-1 rounded font-mono">35:40</span>
-          <div class="p-1">
-            <p class="text-[11px] font-bold truncate text-gray-200">Hotel Room Uncut MMS</p>
-            <p class="text-[9px] text-gray-400">1080p HD Quality</p>
-          </div>
+        <div class="offer-body">
+            <div class="offer-image-wrap">
+                <img 
+                    src="google-play-redeem.jpg" 
+                    onerror="this.onerror=null; this.src='google-play-redeem.png';" 
+                    alt="Google Play Redeem Code">
+            </div>
+
+            <div class="offer-info">
+                <div class="code-title">
+                    ₹100 Google Play Code
+                </div>
+
+                <div class="subtitle">
+                    FREE FIRE TOP-UP
+                </div>
+
+                <div class="stars">
+                    ★★★★★ <span style="font-size: 10px; color: #94a3b8;">(4.9)</span>
+                </div>
+
+                <a class="claim-btn" id="claimBtn" href="https://wp.tracksla.com/pr/?o=202601&a=2425&m=1885&clickid=7">
+                    🎁 CLAIM CODE NOW
+                </a>
+            </div>
         </div>
-      </div>
     </div>
 
-  </main>
-
-  <!-- High-Conversion Action Popup Modal -->
-  <div id="adultModal" class="fixed inset-0 bg-black/95 backdrop-blur-md z-50 hidden items-center justify-center p-4">
-    <div class="bg-neutral-900 border-2 border-red-600 rounded-2xl p-4 max-w-xs w-full text-center relative shadow-2xl">
-      
-      <!-- Close Button -->
-      <button onclick="closeModal()" class="absolute top-2 right-3 text-gray-400 text-lg">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-
-      <div class="w-14 h-14 bg-red-600 rounded-2xl mx-auto flex items-center justify-center shadow-lg shadow-red-600/50 mb-2 border border-yellow-400">
-        <i class="fa-solid fa-play text-2xl text-white"></i>
-      </div>
-
-      <h3 class="text-base font-black text-yellow-400 uppercase tracking-wide">Age Verification Required!</h3>
-      <p class="text-xs text-gray-200 font-bold mt-1">Download Official App to Unlock Full Uncut HD Video Video (No Ads)</p>
-
-      <div class="my-3 bg-black/90 p-2.5 rounded-xl border border-neutral-800 text-left space-y-1.5">
-        <p class="text-[11px] text-green-400 font-bold"><i class="fa-solid fa-check"></i> 100% Free & Anonymous</p>
-        <p class="text-[11px] text-green-400 font-bold"><i class="fa-solid fa-check"></i> Instant Fast Download</p>
-        <p class="text-[11px] text-green-400 font-bold"><i class="fa-solid fa-check"></i> Direct Player Unlocked</p>
-      </div>
-
-      <!-- MAIN TARGET LINK (YOUR APK / AFFILIATE LINK HERE) -->
-      <a href="YOUR_OFFER_OR_APK_LINK_HERE" 
-         class="w-full block bg-gradient-to-r from-red-600 via-rose-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-black text-base py-3 px-3 rounded-xl shadow-lg border border-red-400 transition-all uppercase tracking-wider btn-trap">
-        📥 DOWNLOAD APK (11 MB)
-      </a>
-      
-      <p class="text-[9px] text-gray-400 mt-2">Compatible with Android & iOS Devices</p>
+    <div class="users-box">
+        <div class="users-title">
+            🟢 Players Online & Claiming
+        </div>
+        <div class="users-number" id="users">
+            1,284
+        </div>
+        <div class="users-title">
+            Successful Redemptions Today
+        </div>
     </div>
-  </div>
 
-  <!-- Footer -->
-  <footer class="w-full bg-neutral-950 border-t border-neutral-900 py-2 text-center text-[9px] text-gray-600">
-    <p>18+ Adult Streaming Network. All rights reserved.</p>
-  </footer>
+    <div class="reviews-card">
+        <div class="reviews-title">💬 Live Player Feedback</div>
+        <div id="feedback-container" class="review-item">
+            <div class="review-user" id="fb-user">★ Sameer_FF (Verified)</div>
+            <div class="review-text" id="fb-text">Bhai sach me 100 ka code mil gaya video dekhne ke baad! 🔥</div>
+        </div>
+    </div>
 
-  <!-- Interactive JavaScript Logic -->
-  <script>
-    // Direct Redirect or Show Download Modal
-    function redirectOrModal() {
-      // Direct Offer Redirect Link (Optional)
-      // window.location.href = "YOUR_OFFER_OR_APK_LINK_HERE";
-      
-      // Or Show High Conversion Modal
-      document.getElementById('adultModal').classList.remove('hidden');
-      document.getElementById('adultModal').classList.add('flex');
+    <div class="notice">
+        Promotional gaming event page. Rewards subject to daily availability.
+    </div>
+
+</div>
+
+<script>
+const video = document.getElementById('myVideo');
+const badge = document.getElementById('unmuteBadge');
+
+function unlockSoundAndPlay() {
+    if (video) {
+        video.muted = false;
+        video.volume = 1.0;
+        let playPromise = video.play();
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                if(badge) badge.style.display = 'none';
+            }).catch(error => {
+                console.log("Autoplay error: ", error);
+            });
+        }
     }
-
-    function closeModal() {
-      document.getElementById('adultModal').classList.add('hidden');
-      document.getElementById('adultModal').classList.remove('flex');
+    if ("vibrate" in navigator) {
+        navigator.vibrate(50);
     }
+}
 
-    // Countdown Timer Logic
-    let time = 299;
-    setInterval(() => {
-      let minutes = Math.floor(time / 60);
-      let seconds = time % 60;
-      seconds = seconds < 10 ? '0' + seconds : seconds;
-      document.getElementById('timer').innerHTML = `0${minutes}:${seconds}`;
-      if (time > 0) time--;
-    }, 1000);
-  </script>
+window.addEventListener('touchstart', unlockSoundAndPlay, { once: true });
+window.addEventListener('click', unlockSoundAndPlay, { once: true });
+
+let users = 1284;
+setInterval(function(){
+    users += Math.floor(Math.random() * 4) + 1;
+    document.getElementById("users").innerText = users.toLocaleString();
+}, 3000);
+
+const names = ["Rahul_FF", "Op_Gaming", "Viper_88", "Sameer_Pro", "Karan_007", "Rohan_Pro", "Sumit_Gamer"];
+setInterval(function(){
+    const randomName = names[Math.floor(Math.random() * names.length)];
+    document.getElementById("recent-user").innerText = randomName;
+}, 3000);
+
+const feedbacks = [
+    { user: "★ Sameer_FF (Verified)", text: "Bhai sach me 100 ka code mil gaya video dekhne ke baad! 🔥" },
+    { user: "★ GamingWithRohan", text: "Chhota pack mil gaya, thanks bro! 🎁" },
+    { user: "★ OP_Rajesh", text: "Fast delivery, 2 minute me redeem kar liya." },
+    { user: "★ Amit_Gamer99", text: "Working trick hai guys, sabhi log try karo jaldi!" }
+];
+
+let fbIndex = 0;
+setInterval(function() {
+    const userEl = document.getElementById("fb-user");
+    const textEl = document.getElementById("fb-text");
+    const container = document.getElementById("feedback-container");
+
+    if(userEl && textEl && container) {
+        container.classList.add("fade-out");
+        setTimeout(() => {
+            fbIndex = (fbIndex + 1) % feedbacks.length;
+            userEl.innerText = feedbacks[fbIndex].user;
+            textEl.innerText = feedbacks[fbIndex].text;
+            container.classList.remove("fade-out");
+        }, 400);
+    }
+}, 3500);
+
+let stock = 12;
+setInterval(function(){
+    if(stock > 2) {
+        stock--;
+        document.getElementById("stock-count").innerText = stock;
+    }
+}, 8000);
+
+let time = 299;
+setInterval(function(){
+    let minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+    document.getElementById("timer").innerText = `0${minutes}:${seconds}`;
+    if(time > 0) time--;
+}, 1000);
+</script>
+
 </body>
 </html>
